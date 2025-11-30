@@ -1,0 +1,316 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #f1f1f1;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  color: #ffffff;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 1rem 0;
+  background-color: #282c34;
+  border-bottom: 1px solid #444;
+  margin-bottom: 2rem;
+}
+
+nav a,
+nav button {
+  color: #61dafb;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+nav a:hover,
+nav button:hover {
+  background-color: #3a3f47;
+}
+
+nav span {
+  padding: 0.5rem 1rem;
+  color: #fff;
+}
+
+/* --- User Grid (Home Page) --- */
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  text-align: left;
+}
+
+.user-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.user-card {
+  background-color: #282c34;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.thumbnail-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  background-color: #20232a;
+}
+
+.thumbnail-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.live-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #e91e63;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.user-card-info {
+  padding: 15px;
+}
+
+.user-card-info.offline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 15px;
+}
+
+.user-card-info.offline span {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.user-card-info h3 {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Streamer Page --- */
+.streamer-page .stream-player-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background-color: black;
+  border-radius: 8px;
+}
+
+.streamer-page .stream-player-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.chat-container {
+  margin-top: 20px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 10px;
+  height: 400px;
+  overflow-y: scroll;
+  background-color: #222;
+  text-align: left;
+}
+
+.chat-message {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.chat-message strong {
+  color: #61dafb;
+  margin-right: 5px;
+}
+.chat-message strong.bannable {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.chat-message strong.bannable:hover {
+  color: #e91e63;
+}
+
+.chat-input-container {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input-container input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #333;
+  color: #f1f1f1;
+}
+
+.chat-input-container button {
+  padding: 10px 15px;
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.chat-input-container button:disabled {
+  background-color: #444;
+  cursor: not-allowed;
+}
+
+/* --- Settings & Ban Forms --- */
+.obs-setup-container {
+  margin-top: 20px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #282c34;
+  text-align: left;
+}
+.obs-setup-container code {
+  background-color: #222;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+}
+.obs-setup-container input[type="text"],
+.obs-setup-container input[type="password"] {
+    width: auto; /* Allow input to size based on content or flex */
+    min-width: 200px;
+    margin-right: 10px;
+}
+.obs-setup-container button {
+    margin-left: 10px;
+    background-color: #61dafb;
+    color: #282c34;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.obs-setup-container form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.obs-setup-container form div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+.obs-setup-container form input {
+    width: 100%;
+    box-sizing: border-box;
+}
+.obs-setup-container form button {
+    margin-left: 0;
+    width: fit-content;
+    padding: 10px 20px;
+}
+
+.banned-users-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.banned-users-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #3a3f47;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.banned-users-list li button {
+  background-color: #ffc107;
+  color: #282c34;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+.banned-users-list li button:hover {
+  background-color: #e0a800;
+}
+
+/* Global Form Styles (if not already defined well enough) */
+form div {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+form input[type="text"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #333;
+  color: #f1f1f1;
+  box-sizing: border-box;
+}
+form button {
+  background-color: #61dafb;
+  color: #282c34;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+form button:hover {
+  background-color: #4fa3d7;
+}
